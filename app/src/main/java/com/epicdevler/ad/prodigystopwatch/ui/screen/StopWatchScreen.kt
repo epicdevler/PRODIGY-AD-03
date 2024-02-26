@@ -1,6 +1,7 @@
 package com.epicdevler.ad.prodigystopwatch.ui.screen
 
 import androidx.compose.animation.core.animateValueAsState
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -10,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Pause
 import androidx.compose.material.icons.rounded.Person
@@ -17,11 +19,13 @@ import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme.colorScheme
 import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -41,7 +45,7 @@ fun StopWatchScreen() {
         modifier = Modifier.fillMaxSize(),
     ) {
         Text(
-            text = "Prodigy Stop Watch",
+            text = "Stop Watch",
             style = typography.titleLarge,
             modifier = Modifier
                 .fillMaxWidth()
@@ -86,6 +90,9 @@ fun ColumnScope.TimerValues(timer: StopWatchVM.UiState.Timer) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
+            .padding(50.dp)
+            .clip(CircleShape)
+            .border(1.dp, color = colorScheme.primary, CircleShape)
             .fillMaxWidth()
             .weight(1f)
             .padding(16.dp),
